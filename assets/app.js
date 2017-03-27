@@ -6,8 +6,24 @@ $(document).ready(function() {
     $("#addtvShow").on("click", function(event) {
         event.preventDefault();
         // Grabbing and storing the value from the field
-        var tvShow = $("#tvShow-input").val();
+        var tvShow = $("#tvShow-input").val().trim();
         console.log(tvShow);
+
+               var gifClose = $("<button>");
+
+               gifClose.attr("data-count", gifCount);
+               gifClose.attr("type", "button");
+               gifClose.attr("type", "submit");
+               gifClose.addClass("btn btn-primary");
+               gifClose.text(tvShow);
+
+               $("#tvShows").append(gifClose);
+
+            //empty input field
+             $("#tvShow-input").val("");
+
+              // Add to the gifCount
+              gifCount++;
 
 
         // Constructing a queryURL using the tv show name
@@ -24,17 +40,9 @@ $(document).ready(function() {
                 console.log(queryURL);
                 console.log(response);
 
-                //grab data from response and store in variable
-               var tvShow = response.data;
-               var gifItem = $("<button>");
-
-               // gifItem.attr("id", );
-               // gifItem.append(" " + toDoTask);
-
-
-
-            }); //closes function for ajax call
-
+                
+           
+       });
     }); // closes event listener function for tvshowinput
 
 }); // closes document.ready function
