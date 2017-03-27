@@ -2,6 +2,7 @@ $(document).ready(function() {
 
     // Adding click event listener to TV Show button
     $("#addtvShow").on("click", function() {
+        event.preventDefault();
         // Grabbing and storing the value from the field
         var tvShow = $("#tvShow-input").val();
         console.log(tvShow);
